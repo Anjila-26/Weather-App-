@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Weather Now",
+  "version": "1.0",
+  "description": "A cute pixel-art weather widget for your browser.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/weather.png"
+  },
+  "permissions": ["geolocation", "storage"]
+}

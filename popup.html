@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather.exe</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <span class="title">WEATHER.EXE</span>
+      <div class="window-controls">
+        <span class="control minimize"></span>
+        <span class="control maximize"></span>
+        <span class="control close"></span>
+      </div>
+    </div>
+    <div class="container" id="weatherContainer">
+      <div class="weather-content">
+        <p id="weatherMessage" class="weather-message">Loading...</p>
+        <!-- Weather details - top left -->
+        <div class="weather-details">
+          <div class="detail-item">
+            <span id="humidity"></span>
+          </div>
+          <div class="detail-item">
+            <span id="aqi"></span>
+          </div>
+        </div>
+        <div class="center-temp">
+          <h1 id="temperature" class="temperature"></h1>
+          <p id="feelsLike" class="feels-like"></p>
+        </div>
+        <div class="character-container">
+          <div id="character" class="character"></div>
+        </div>
+        <!-- Bottom left info -->
+        <div class="bottom-left-info">
+          <div id="tomorrowForecast" class="tomorrow-forecast"></div>
+          <div id="recommendation" class="recommendation"></div>
+        </div>
+        <!-- Clothing recommendations -->
+        <div id="clothingRecommendations" class="clothing-recommendations"></div>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

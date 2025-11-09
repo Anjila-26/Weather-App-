@@ -1,0 +1,302 @@
+@font-face {
+  font-family: 'LoRes15';
+  src: url('fonts/LoRes15OT-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'LoRes12';
+  src: url('fonts/LoRes12OT-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  width: 400px;
+  height: 350px;
+  overflow: hidden;
+  background: black;
+  padding: 10px;
+}
+
+.window {
+  width: 100%;
+  height: 100%;
+  background: #C1DAF9;
+  border: 3px solid #5B5B5B;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title-bar {
+  background: #C1DAF9;
+  color: #5B5B5B;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: 'LoRes15', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid #5B5B5B;
+}
+
+.minimize { 
+  background: #FDED9B;
+}
+
+.maximize { 
+  background: #BEEC8E;
+}
+
+.close { 
+  background: #FFB6CD;
+}
+
+.container {
+  width: 100%;
+  height: calc(100% - 50px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: background-image 0.5s ease;
+  border: 3px solid #5B5B5B;
+  margin: -5px 12px 12px 12px;
+  width: calc(100% - 24px);
+}
+
+.weather-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+  font-family: 'LoRes12', 'Courier New', monospace;
+}
+
+.weather-message {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  image-rendering: pixelated;
+  font-family: 'LoRes12', 'Courier New', monospace;
+}
+
+.pixel-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#weather {
+  position: relative;
+  z-index: 2;
+}
+
+.temp-message {
+  font-size: 13px;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.character-container {
+  position: absolute;
+  bottom: 1px;
+  right: 5px;
+  width: 100px;
+  height: 100px;
+  z-index: 4;
+}
+
+.character {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  image-rendering: pixelated;
+}
+
+.center-temp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+}
+
+.temperature {
+  font-family: 'LoRes15', 'Courier New', monospace;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+}
+
+.feels-like {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 11px;
+  color: #fff;
+  margin: 5px 0 0 0;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.bottom-left-info {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tomorrow-forecast {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0;
+  background: transparent;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+.recommendation {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0;
+  background: transparent;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+.weather-details {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+
+.detail-item {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  padding: 0;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+.clothing-recommendations {
+  display: none; /* Hidden by default - too cluttered */
+  position: absolute;
+  bottom: 50px;
+  left: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.clothing-header {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 11px;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.clothing-title {
+  letter-spacing: 0.5px;
+}
+
+.clothing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clothing-list li {
+  font-family: 'LoRes12', 'Courier New', monospace;
+  font-size: 9px;
+  color: #fff;
+  padding: 2px 0;
+  letter-spacing: 0.3px;
+  opacity: 0.9;
+}
+
+.clothing-list li:before {
+  content: "→ ";
+  margin-right: 3px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Weather-specific backgrounds */
+.night-bg {
+  background-image: url('background/Night.png');
+}
+
+.cloudy-bg {
+  background-image: url('background/Cloudy.png');
+}
+
+.sunny-bg {
+  background-image: url('background/Sunny.png');
+}
+
+.rainy-bg {
+  background-image: url('background/Rainy.png');
+}

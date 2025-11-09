@@ -30,7 +30,7 @@ That's why it stopped working - you probably opened it as a file instead of thro
 
 Here is what the Weather App looks like:
 
-![Weather App Screenshot](Screenshots/weather_app.png)
+<img src="Screenshots/weather_app.png" alt="Weather App Screenshot" width="350" />
 
 ---
 
